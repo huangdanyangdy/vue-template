@@ -1,0 +1,91 @@
+//上下左右箭头===========
+ .top_arrows {
+            width: 20px;
+            height: 20px;
+            border-top: 1px solid #c3c8d6;
+            border-right: 1px solid #c3c8d6;
+            transform: rotate(-45deg);
+            margin-right:30px;
+            margin-top: 6px;
+        }
+
+        .bottom_arrows {
+            width: 20px;
+            height: 20px;
+            border-top: 1px solid #c3c8d6;
+            border-right: 1px solid #c3c8d6;
+            transform: rotate(135deg);
+            margin-right:30px;
+            margin-top: -6px;
+        }
+
+        .left_arrows {
+            width: 20px;
+            height: 20px;
+            border-top: 1px solid #c3c8d6;
+            border-right: 1px solid #c3c8d6;
+            transform: rotate(-135deg);
+            margin-right:10px;
+        }
+
+        .right_arrows {
+            width: 20px;
+            height: 20px;
+            border-top: 1px solid #c3c8d6;
+            border-right: 1px solid #c3c8d6;
+            transform: rotate(45deg);
+        }
+
+
+//文本溢出...
+.text1{
+  white-space: normal;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  -webkit-line-clamp:1;
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+}
+.text2{
+  white-space: normal;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  -webkit-line-clamp:2;
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+}
+
+//栅格布局===============
+.play-grid{
+  padding: 24rpx;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20rpx 18rpx;
+}
+
+//吸顶效果
+.sticky{
+  position:sticky;
+  top:0rpx;
+  z-index:9;
+}
+
+
+//滚动监听noscroll事件
+window.onscroll = function () {
+     console.log(document.documentElement.scrollTop);
+     var scrollTop = document.documentElement.scrollTop;
+    /*1.默认的透明度*/
+    var opacity = 0;
+    if (scrollTop < height) {
+        /*2.当页面滚动的时候---随着页面卷曲的高度变大透明度变大*/
+        opacity = scrollTop / height * 0.85;
+    } else {
+        /*3.当页面滚动的时候---超过某一个高度的时候透明度不变*/
+        opacity = 0.85;
+    }
+    searchBox.style.background = 'rgba(201,21,35,' + opacity + ')';
+}
+
+//获取页面当前位置
+document.body.clientWidth、document.documentElement.clientHeight
